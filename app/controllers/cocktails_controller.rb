@@ -17,11 +17,13 @@ class CocktailsController < ApplicationController
 
     respond_to do |format|
       if @cocktail.save
-        format.html { redirect_to @cocktail, notice: 'cocktail was successfully created.' }
-        format.json { render :show, status: :created, location: @cocktail }
+        # format.html { redirect_to @cocktail, notice: 'cocktail was successfully created.' }
+        # format.json { render :show, status: :created, location: @cocktail }
+        redirect_to root_path
       else
-        format.html { render :new }
-        format.json { render json: @cocktail.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        # format.json { render json: @cocktail.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
