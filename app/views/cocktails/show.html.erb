@@ -1,2 +1,7 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<h1>Show : <%= @cocktail.name %></h1>
+  <%= @cocktail.doses.count %>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.ingredient.name %> : <%= dose.description %><%= link_to "Delete", dose, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <% end %>
+  </ul>

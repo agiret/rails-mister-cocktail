@@ -1,2 +1,12 @@
-<h1>Doses#new</h1>
-<p>Find me in app/views/doses/new.html.erb</p>
+<h1>Add a new dose to <%= @cocktail.name %></h1>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.ingredient.name %> : <%= dose.description %></li>
+    <% end %>
+  </ul>
+<h2>Add a new ingredient :</h2>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.association :ingredient, collection: Ingredient.all %>
+  <%= f.input :description %>
+  <%= f.submit "Add ingredient", class: "btn btn-primary" %>
+<% end %>
