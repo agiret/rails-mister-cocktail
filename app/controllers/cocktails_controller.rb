@@ -19,7 +19,7 @@ class CocktailsController < ApplicationController
       if @cocktail.save
         # format.html { redirect_to @cocktail, notice: 'cocktail was successfully created.' }
         # format.json { render :show, status: :created, location: @cocktail }
-        redirect_to root_path
+        redirect_to @cocktail # ou root_path mais rectif pour rake
       else
         # format.html { render :new }
         # format.json { render json: @cocktail.errors, status: :unprocessable_entity }
