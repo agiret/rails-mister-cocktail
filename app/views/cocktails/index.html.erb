@@ -2,7 +2,12 @@
 
 <% @cocktails.each do |cocktail| %>
   <%= render 'components/card_cocktail', cocktail: cocktail %>
+  <% if cocktail.photo? %>
+    <%= image_tag cocktail.photo.url(:bright_face) %>
+  <% end %>
 <% end %>
 
 <hr>
 <%= link_to "ajouter un cocktail", new_cocktail_path %>
+
+params[:one].nil?

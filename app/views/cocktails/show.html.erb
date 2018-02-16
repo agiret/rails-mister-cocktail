@@ -7,7 +7,9 @@
   </ul> -->
 
 <h1><%= @cocktail.name %></h1>
-
+<% if @cocktail.photo.nil?() == false %>
+  <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+<% end  %>
 <ul>
     <% @cocktail.doses.each do |dose| %>
       <li>
@@ -23,8 +25,9 @@
 
 
 <h2>Add image :</h2>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.association :ingredient, collection: Ingredient.all %>
-  <%= f.input :description %>
-  <%= f.submit "Add ingredient", class: "btn btn-primary" %>
+<%= simple_form_for [@cocktail] do |f| %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "Add image", class: "btn btn-primary" %>
 <% end %>
+
